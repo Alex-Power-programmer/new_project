@@ -1,3 +1,14 @@
-<meta charset="UTF-8">
-<p> Все кандидаты </p>
-<p><a href="/candidates/<x>"> Имя кандидата </a></p>
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    </head>
+<body>
+    <p> Все кандидаты </p>
+    {% for i in candidates %}
+    <p><a href="candidate/{{i.id}}"> {{i.name}} <a/></p>
+    {% endfor %}
+</body>
+
+
+</html>

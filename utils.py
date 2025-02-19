@@ -1,42 +1,32 @@
 import json
 
-def open_file_json():
+def load_candidates_from_json():
     path = 'candidates.json'
     with open(path,'r',encoding='utf-8') as f:
         file = json.load(f)
     return file
-    # candidates = open_file_json()
-    # line = '<pre>'
-    # for candidate in candidates:
-    #     line += f'{candidate['name']} <br>{candidate['position']} <br>{candidate['skills']}<br><br>'
-    # line += '</pre>'
 
 
-def load_candidates_from_json():
-    return open_file_json
+candidates = load_candidates_from_json()
 
 
-def get_candidates_id(candidates_id):
-    candidates = open_file_json()
+def get_candidate(candidates_id):
     for candidate in candidates:
         if candidate['id'] == candidates_id:
             return candidate
 
 
 def get_candidates_by_name(candidates_name):
-    candidates = open_file_json()
-    name = []
+    name_list = []
     for candidate in candidates:
-        if candidate['name'] == candidates_name:
-            name.append(candidate)
-    return name
+        if  candidates_name[0].title() in candidate['name'][0]:
+            name_list.append(candidate)
+    return name_list
 
 
 def get_candidates_by_skill(skill_name):
-    candidates = open_file_json()
-    skills = []
+    list_skills = []
     for candidate in candidates:
-        if skill_name in candidate['skills']:
-            skills.append(candidate)
-    return skills
-
+        if skill_name.lower() in candidate['skills'].lower():
+            list_skills.append(candidate)
+    return list_skills
