@@ -32,5 +32,3 @@ def search(candidate_name):
 @app.route('/search/candidate/<x>')
 def search_candidate(x):
     return render_template('single.html',i=get_candidate(int(x)) )
-
-app.run(debug=True)

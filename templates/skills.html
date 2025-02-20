@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
 </head>
 <body>
+    {% if list_skills|length > 1 %}
 <h1> Найдено со скиллом {{skill}}: {{digit}}</h1>
 {% for i in list_skills %}
 <p><a href="/candidate/{{i.id}}"> {{i.name}} </a></p>
 {% endfor %}
+    {%else %}
+    <h1> Кандидат с таким скиллом не найден </h1>
+    {% endif%}
 </body>
 
 </html>
